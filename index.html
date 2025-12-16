@@ -1,0 +1,2847 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Fashion | Премиум шоппинг для стильных девушек</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #FFB6C1;
+            --pink-main: #FF69B4;
+            --pink-dark: #DB7093;
+            --purple-light: #D8BFD8;
+            --purple-main: #9370DB;
+            --gold-light: #FFD700;
+            --gold-main: #FFC107;
+            --white: #FFFFFF;
+            --cream: #FFF5EE;
+            --gray-light: #F8F8FF;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-dancing: 'Dancing Script', cursive;
+            --font-playfair: 'Playfair Display', serif;
+            --font-montserrat: 'Montserrat', sans-serif;
+            --font-poppins: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            font-family: var(--font-poppins);
+            opacity: 0;
+            animation: bodyFadeIn 1s ease forwards;
+        }
+
+        @keyframes bodyFadeIn {
+            to { opacity: 1; }
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 90% 30%, rgba(255, 105, 180, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(216, 191, 216, 0.1) 0%, transparent 30%);
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: var(--pink-main);
+            font-size: 24px;
+            opacity: 0.3;
+            animation: floatHeart 15s infinite linear;
+        }
+
+        .floating-flower {
+            position: absolute;
+            color: var(--purple-main);
+            font-size: 28px;
+            opacity: 0.2;
+            animation: floatFlower 20s infinite linear;
+        }
+
+        .floating-sparkle {
+            position: absolute;
+            color: var(--gold-main);
+            font-size: 20px;
+            opacity: 0.4;
+            animation: sparkle 8s infinite linear;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, 150px) rotate(90deg);
+            }
+            50% {
+                transform: translate(200px, 50px) rotate(180deg);
+            }
+            75% {
+                transform: translate(50px, 200px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @keyframes floatFlower {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(150px, 100px) scale(1.2);
+            }
+            66% {
+                transform: translate(300px, 200px) scale(0.8);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.5);
+            }
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: var(--font-dancing);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) scale(1.05);
+            color: var(--pink-main);
+        }
+
+        .logo i {
+            color: var(--gold-main);
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-family: var(--font-playfair);
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--pink-main), var(--purple-main));
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--pink-main);
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .icon-btn {
+            position: relative;
+            font-size: 1.4rem;
+            color: #666;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            background: rgba(255, 182, 193, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 105, 180, 0.2);
+            color: var(--pink-main);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: linear-gradient(45deg, var(--pink-main), var(--purple-main));
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .page-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            padding: 2rem 5% 4rem;
+            margin-top: 80px;
+        }
+
+        .page-container.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+            position: relative;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 238, 0.9));
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.15);
+            animation: heroAppear 1s ease-out 0.3s both;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes heroAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-dancing);
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--pink-main), var(--purple-main), var(--pink-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s infinite linear;
+            background-size: 200% 200%;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-family: var(--font-playfair);
+            font-size: 1.4rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-playfair);
+            font-size: 1.8rem;
+            color: var(--purple-main);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid var(--pink-light);
+            color: var(--pink-dark);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-playfair);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+        }
+
+        .category-btn i {
+            color: var(--gold-main);
+            font-size: 1.2rem;
+        }
+
+        .category-btn:hover {
+            background: linear-gradient(to right, var(--pink-light), var(--purple-light));
+            border-color: transparent;
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(to right, var(--pink-main), var(--purple-main));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .subcategory-btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--purple-light);
+            color: var(--purple-main);
+            border-radius: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-montserrat);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 3px 10px rgba(147, 112, 219, 0.15);
+        }
+
+        .subcategory-btn:hover {
+            background: rgba(147, 112, 219, 0.1);
+            border-color: var(--purple-main);
+            transform: translateY(-2px);
+        }
+
+        .subcategory-btn.active {
+            background: var(--purple-main);
+            border-color: var(--purple-main);
+            color: white;
+            box-shadow: 0 5px 15px rgba(147, 112, 219, 0.3);
+        }
+
+        .subcategories {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+            animation: gridAppear 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes gridAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid var(--pink-light);
+            position: relative;
+            opacity: 0;
+            animation: cardAppear 0.6s ease-out forwards;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.15);
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.25);
+            border-color: var(--pink-main);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(45deg, var(--pink-main), var(--purple-main));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .product-image-container {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.15);
+        }
+
+        .product-info {
+            padding: 1.8rem;
+        }
+
+        .product-title {
+            font-family: var(--font-playfair);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .product-description {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .old-price {
+            font-size: 1.2rem;
+            color: #aaa;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background: var(--gold-light);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .size-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .size-btn {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 182, 193, 0.1);
+            border: 2px solid var(--pink-light);
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-family: var(--font-montserrat);
+        }
+
+        .size-btn:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: var(--pink-main);
+            transform: translateY(-2px);
+        }
+
+        .size-btn.active {
+            background: var(--pink-main);
+            border-color: var(--pink-main);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(to right, var(--pink-main), var(--purple-main));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-playfair);
+        }
+
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .buy-btn:hover::before {
+            left: 100%;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 450px;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            transition: right 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 2.5rem;
+            overflow-y: auto;
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--pink-main);
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--pink-light);
+        }
+
+        .cart-header h3 {
+            font-family: var(--font-dancing);
+            font-size: 2.5rem;
+            color: var(--pink-dark);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-cart:hover {
+            background: rgba(255, 182, 193, 0.2);
+            color: var(--pink-main);
+            transform: rotate(90deg);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 2px solid var(--pink-light);
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #444;
+            font-family: var(--font-playfair);
+        }
+
+        .cart-item-details p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+            background: rgba(255, 182, 193, 0.2);
+            border: 2px solid var(--pink-light);
+            color: var(--pink-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .quantity-btn:hover {
+            background: var(--pink-light);
+            border-color: var(--pink-main);
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .remove-item:hover {
+            background: rgba(255, 107, 107, 0.1);
+            transform: scale(1.2);
+        }
+
+        .cart-total {
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pink-light);
+            font-family: var(--font-playfair);
+            font-weight: 600;
+            color: var(--pink-dark);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(to right, var(--purple-main), var(--pink-dark));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-family: var(--font-playfair);
+            font-size: 1.2rem;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(147, 112, 219, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            margin-top: 5rem;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.1), rgba(216, 191, 216, 0.1));
+            border-top: 2px solid rgba(255, 182, 193, 0.3);
+            color: #666;
+        }
+
+        .footer-logo {
+            font-family: var(--font-dancing);
+            font-size: 2.5rem;
+            color: var(--pink-dark);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--pink-main);
+            font-size: 1.8rem;
+            transition: var(--transition);
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.15);
+        }
+
+        .social-links a:hover {
+            color: white;
+            background: linear-gradient(to right, var(--pink-main), var(--purple-main));
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-family: var(--font-dancing);
+            font-size: 4rem;
+            color: var(--pink-main);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 182, 193, 0.3);
+            border-top-color: var(--pink-main);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .no-products-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+            font-family: var(--font-playfair);
+            font-size: 1.5rem;
+        }
+
+        .no-products-message i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--pink-light);
+            opacity: 0.5;
+        }
+
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .categories {
+                gap: 0.8rem;
+            }
+            
+            .category-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--pink-main);
+                font-size: 1.8rem;
+                cursor: pointer;
+            }
+            
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+                padding: 1.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .header-icons {
+                gap: 1rem;
+            }
+            
+            .icon-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">MZ Fashion</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <div class="background" id="background"></div>
+
+    <header>
+        <a href="#" class="logo" data-page="home">
+            <i class="fas fa-crown"></i> MZ Fashion
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-page="home">Главная</a></li>
+                <li><a href="#" class="nav-link" data-page="dresses">Платья</a></li>
+                <li><a href="#" class="nav-link" data-page="bags">Сумки</a></li>
+                <li><a href="#" class="nav-link" data-page="shoes">Обувь</a></li>
+                <li><a href="#" class="nav-link" data-page="jewelry">Украшения</a></li>
+                <li><a href="#" class="nav-link" data-page="beauty">Красота</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-icons">
+            <div class="icon-btn" id="wishlist-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="icon-btn" id="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="icon-btn" id="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <div class="cart-count">0</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container active" id="page-home">
+        <section class="hero">
+            <h1>MZ Fashion</h1>
+            <div class="hero-subtitle">Премиум шоппинг для стильных девушек</div>
+            <p>Откройте для себя мир роскоши и элегантности. Эксклюзивные коллекции платьев, аксессуаров и косметики для настоящих леди.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">
+                <i class="fas fa-star"></i> Все товары
+            </button>
+            <button class="category-btn" data-category="new">
+                <i class="fas fa-fire"></i> Новинки
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Скидки
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="exclusive">
+                <i class="fas fa-gem"></i> Эксклюзив
+            </button>
+        </div>
+
+        <div class="products-grid" id="home-products">
+        </div>
+    </div>
+
+    <div class="page-container" id="page-dresses">
+        <section class="hero">
+            <h1>Вечерние платья</h1>
+            <div class="hero-subtitle">Станьте королевой бала</div>
+            <p>Элегантные платья для особых случаев. От коктейльных до свадебных нарядов.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all-dresses">
+                <i class="fas fa-star"></i> Все платья
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Со скидкой
+            </button>
+        </div>
+
+        <div class="subcategories" id="dresses-subcategories">
+            <button class="subcategory-btn active" data-subcategory="all">Все</button>
+            <button class="subcategory-btn" data-subcategory="evening">Вечерние</button>
+            <button class="subcategory-btn" data-subcategory="cocktail">Коктейльные</button>
+            <button class="subcategory-btn" data-subcategory="wedding">Свадебные</button>
+            <button class="subcategory-btn" data-subcategory="maxi">Макси</button>
+            <button class="subcategory-btn" data-subcategory="mini">Мини</button>
+        </div>
+
+        <div class="products-grid" id="dresses-products">
+        </div>
+    </div>
+
+    <div class="page-container" id="page-bags">
+        <section class="hero">
+            <h1>Дизайнерские сумки</h1>
+            <div class="hero-subtitle">Акцент вашего образа</div>
+            <p>Стильные сумки от ведущих брендов. От клатчей до вместительных тоутов.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all-bags">
+                <i class="fas fa-star"></i> Все сумки
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Со скидкой
+            </button>
+        </div>
+
+        <div class="subcategories" id="bags-subcategories">
+            <button class="subcategory-btn active" data-subcategory="all">Все</button>
+            <button class="subcategory-btn" data-subcategory="clutch">Клатчи</button>
+            <button class="subcategory-btn" data-subcategory="tote">Тоты</button>
+            <button class="subcategory-btn" data-subcategory="backpack">Рюкзаки</button>
+            <button class="subcategory-btn" data-subcategory="crossbody">Кроссбоди</button>
+            <button class="subcategory-btn" data-subcategory="shoulder">На плечо</button>
+        </div>
+
+        <div class="products-grid" id="bags-products">
+        </div>
+    </div>
+
+    <div class="page-container" id="page-shoes">
+        <section class="hero">
+            <h1>Элегантная обувь</h1>
+            <div class="hero-subtitle">Комфорт и стиль</div>
+            <p>Туфли, босоножки и сапоги для любого сезона и настроения.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all-shoes">
+                <i class="fas fa-star"></i> Вся обувь
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Со скидкой
+            </button>
+        </div>
+
+        <div class="subcategories" id="shoes-subcategories">
+            <button class="subcategory-btn active" data-subcategory="all">Все</button>
+            <button class="subcategory-btn" data-subcategory="heels">Каблуки</button>
+            <button class="subcategory-btn" data-subcategory="flats">Балетки</button>
+            <button class="subcategory-btn" data-subcategory="boots">Ботильоны</button>
+            <button class="subcategory-btn" data-subcategory="sneakers">Кроссовки</button>
+            <button class="subcategory-btn" data-subcategory="sandals">Сандалии</button>
+        </div>
+
+        <div class="products-grid" id="shoes-products">
+        </div>
+    </div>
+
+    <div class="page-container" id="page-jewelry">
+        <section class="hero">
+            <h1>Ювелирные украшения</h1>
+            <div class="hero-subtitle">Сияние драгоценностей</div>
+            <p>Эксклюзивные украшения с драгоценными камнями и позолотой.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all-jewelry">
+                <i class="fas fa-star"></i> Все украшения
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Со скидкой
+            </button>
+        </div>
+
+        <div class="subcategories" id="jewelry-subcategories">
+            <button class="subcategory-btn active" data-subcategory="all">Все</button>
+            <button class="subcategory-btn" data-subcategory="necklaces">Колье</button>
+            <button class="subcategory-btn" data-subcategory="earrings">Серьги</button>
+            <button class="subcategory-btn" data-subcategory="rings">Кольца</button>
+            <button class="subcategory-btn" data-subcategory="bracelets">Браслеты</button>
+            <button class="subcategory-btn" data-subcategory="brooches">Броши</button>
+        </div>
+
+        <div class="products-grid" id="jewelry-products">
+        </div>
+    </div>
+
+    <div class="page-container" id="page-beauty">
+        <section class="hero">
+            <h1>Премиум косметика</h1>
+            <div class="hero-subtitle">Уход и макияж</div>
+            <p>Лучшие бьюти-бренды для идеального макияжа и ухода за кожей.</p>
+        </section>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all-beauty">
+                <i class="fas fa-star"></i> Вся косметика
+            </button>
+            <button class="category-btn" data-category="under70">
+                <i class="fas fa-tag"></i> Меньше 70%
+            </button>
+            <button class="category-btn" data-category="sale">
+                <i class="fas fa-percentage"></i> Со скидкой
+            </button>
+        </div>
+
+        <div class="subcategories" id="beauty-subcategories">
+            <button class="subcategory-btn active" data-subcategory="all">Все</button>
+            <button class="subcategory-btn" data-subcategory="makeup">Макияж</button>
+            <button class="subcategory-btn" data-subcategory="skincare">Уход</button>
+            <button class="subcategory-btn" data-subcategory="perfume">Парфюм</button>
+            <button class="subcategory-btn" data-subcategory="hair">Волосы</button>
+            <button class="subcategory-btn" data-subcategory="body">Тело</button>
+        </div>
+
+        <div class="products-grid" id="beauty-products">
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>Моя корзина</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items">
+        </div>
+        <div class="cart-total">
+            <span>Итого:</span>
+            <span id="cart-total-price">0 ₽</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">
+            <i class="fas fa-credit-card"></i> Оформить заказ
+        </button>
+    </div>
+
+    <footer>
+        <div class="footer-logo">MZ Fashion</div>
+        <p>© 2023 MZ Fashion, Inc. Премиум шоппинг для стильных девушек</p>
+        <p>Эксклюзивные коллекции | www.mzfashion.com</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div style="margin-top: 2rem; font-size: 0.9rem; color: #999;">
+            <p>Бесплатная доставка от 5000 ₽ | Возврат в течение 14 дней</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+
+            initShop();
+        });
+
+        function createFloatingElements() {
+            const background = document.getElementById('background');
+            
+            for (let i = 0; i < 12; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                heart.style.animationDuration = `${15 + Math.random() * 10}s`;
+                background.appendChild(heart);
+            }
+            
+            for (let i = 0; i < 8; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('floating-flower');
+                flower.innerHTML = '❀';
+                flower.style.left = `${Math.random() * 100}%`;
+                flower.style.top = `${Math.random() * 100}%`;
+                flower.style.animationDelay = `${Math.random() * 15}s`;
+                flower.style.animationDuration = `${20 + Math.random() * 10}s`;
+                background.appendChild(flower);
+            }
+            
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('floating-sparkle');
+                sparkle.innerHTML = '✨';
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDelay = `${Math.random() * 5}s`;
+                sparkle.style.animationDuration = `${5 + Math.random() * 3}s`;
+                background.appendChild(sparkle);
+            }
+        }
+
+        const productsData = {
+            home: [
+                {
+                    id: 1,
+                    name: "Вечернее платье Princess",
+                    description: "Роскошное платье с вышивкой и стразами",
+                    price: 24999,
+                    oldPrice: 34999,
+                    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M"],
+                    category: "new",
+                    subcategory: "evening",
+                    badge: "NEW"
+                },
+                {
+                    id: 2,
+                    name: "Дизайнерская сумочка",
+                    description: "Кожаный клатч с цепочкой и стразами",
+                    price: 15999,
+                    oldPrice: 19999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "exclusive",
+                    subcategory: "clutch",
+                    badge: "EXCLUSIVE"
+                },
+                {
+                    id: 3,
+                    name: "Туфли на каблуке",
+                    description: "Лаковые туфли с острым носом",
+                    price: 12999,
+                    oldPrice: 18999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "popular",
+                    subcategory: "heels",
+                    badge: "HOT"
+                },
+                {
+                    id: 4,
+                    name: "Колье с бриллиантами",
+                    description: "Позолоченное колье с бриллиантами",
+                    price: 34999,
+                    oldPrice: 49999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "sale",
+                    subcategory: "necklaces",
+                    badge: "SALE -30%"
+                },
+                {
+                    id: 5,
+                    name: "Платье макси с цветами",
+                    description: "Длинное платье с цветочным принтом",
+                    price: 18999,
+                    oldPrice: 25999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M", "L"],
+                    category: "new",
+                    subcategory: "maxi",
+                    badge: "NEW"
+                },
+                {
+                    id: 6,
+                    name: "Кожаный рюкзак",
+                    description: "Стильный рюкзак из натуральной кожи",
+                    price: 21999,
+                    oldPrice: 29999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "sale",
+                    subcategory: "backpack",
+                    badge: "SALE -27%"
+                },
+                {
+                    id: 7,
+                    name: "Балетки атласные",
+                    description: "Элегантные балетки с бантом",
+                    price: 7999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["35", "36", "37", "38"],
+                    category: "under70",
+                    subcategory: "flats",
+                    badge: "АКЦИЯ"
+                },
+                {
+                    id: 8,
+                    name: "Серьги с жемчугом",
+                    description: "Позолоченные серьги с жемчугом",
+                    price: 8999,
+                    oldPrice: 14999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "earrings",
+                    badge: "-40%"
+                },
+                {
+                    id: 9,
+                    name: "Палетка теней Dior",
+                    description: "Палетка с 10 оттенками теней",
+                    price: 4999,
+                    oldPrice: 7999,
+                    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "makeup",
+                    badge: "-38%"
+                },
+                {
+                    id: 10,
+                    name: "Свадебное платье",
+                    description: "Платье невесты с фатой",
+                    price: 69999,
+                    oldPrice: 99999,
+                    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M", "L"],
+                    category: "exclusive",
+                    subcategory: "wedding",
+                    badge: "LUXURY"
+                },
+                {
+                    id: 11,
+                    name: "Сумка кросс-боди",
+                    description: "Сумка через плечо с цепочкой",
+                    price: 14999,
+                    oldPrice: 21999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "crossbody",
+                    badge: "-32%"
+                },
+                {
+                    id: 12,
+                    name: "Ботильоны замшевые",
+                    description: "Стильные ботильоны на каблуке",
+                    price: 16999,
+                    oldPrice: 23999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "under70",
+                    subcategory: "boots",
+                    badge: "-29%"
+                },
+                {
+                    id: 13,
+                    name: "Кольцо с сапфиром",
+                    description: "Золотое кольцо с сапфиром",
+                    price: 24999,
+                    oldPrice: 39999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["16", "17", "18", "19"],
+                    category: "under70",
+                    subcategory: "rings",
+                    badge: "-38%"
+                },
+                {
+                    id: 14,
+                    name: "Помада Chanel",
+                    description: "Матовые помады 5 оттенков",
+                    price: 2999,
+                    oldPrice: 4999,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "makeup",
+                    badge: "-40%"
+                },
+                {
+                    id: 15,
+                    name: "Платье коктейльное",
+                    description: "Короткое платье с кружевом",
+                    price: 15999,
+                    oldPrice: 22999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M", "L"],
+                    category: "under70",
+                    subcategory: "cocktail",
+                    badge: "-30%"
+                },
+                {
+                    id: 16,
+                    name: "Духи Chanel №5",
+                    description: "Классические женские духи",
+                    price: 9999,
+                    oldPrice: 14999,
+                    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["50ml", "100ml"],
+                    category: "under70",
+                    subcategory: "perfume",
+                    badge: "-33%"
+                }
+            ],
+            dresses: [
+                {
+                    id: 101,
+                    name: "Платье коктейльное",
+                    description: "Короткое платье с кружевом",
+                    price: 18999,
+                    oldPrice: 26999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M", "L"],
+                    category: "sale",
+                    subcategory: "cocktail",
+                    badge: "-30%"
+                },
+                {
+                    id: 102,
+                    name: "Свадебное платье",
+                    description: "Платье невесты с фатой",
+                    price: 89999,
+                    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M", "L"],
+                    category: "all-dresses",
+                    subcategory: "wedding"
+                },
+                {
+                    id: 103,
+                    name: "Платье макси",
+                    description: "Длинное платье с цветочным принтом",
+                    price: 22999,
+                    oldPrice: 32999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M"],
+                    category: "under70",
+                    subcategory: "maxi",
+                    badge: "-30%"
+                },
+                {
+                    id: 104,
+                    name: "Платье бархатное",
+                    description: "Бархатное платье с декольте",
+                    price: 27999,
+                    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M"],
+                    category: "all-dresses",
+                    subcategory: "evening"
+                },
+                {
+                    id: 105,
+                    name: "Платье мини черное",
+                    description: "Короткое черное платье",
+                    price: 14999,
+                    oldPrice: 21999,
+                    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M"],
+                    category: "under70",
+                    subcategory: "mini",
+                    badge: "-32%"
+                },
+                {
+                    id: 106,
+                    name: "Платье с открытой спиной",
+                    description: "Вечернее платье с открытой спиной",
+                    price: 31999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M", "L"],
+                    category: "all-dresses",
+                    subcategory: "evening"
+                },
+                {
+                    id: 107,
+                    name: "Платье для выпускного",
+                    description: "Блестящее платье для выпускного",
+                    price: 25999,
+                    oldPrice: 36999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S"],
+                    category: "under70",
+                    subcategory: "cocktail",
+                    badge: "-30%"
+                },
+                {
+                    id: 108,
+                    name: "Платье с пайетками",
+                    description: "Сияющее платье с пайетками",
+                    price: 34999,
+                    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M"],
+                    category: "all-dresses",
+                    subcategory: "evening"
+                },
+                {
+                    id: 109,
+                    name: "Платье для репетиции",
+                    description: "Элегантное платье для репетиции",
+                    price: 17999,
+                    oldPrice: 25999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M", "L"],
+                    category: "under70",
+                    subcategory: "cocktail",
+                    badge: "-31%"
+                },
+                {
+                    id: 110,
+                    name: "Платье с кружевом",
+                    description: "Романтическое платье с кружевом",
+                    price: 23999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M", "L"],
+                    category: "all-dresses",
+                    subcategory: "evening"
+                },
+                {
+                    id: 111,
+                    name: "Платье с вышивкой",
+                    description: "Платье с ручной вышивкой",
+                    price: 41999,
+                    oldPrice: 59999,
+                    image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["M", "L"],
+                    category: "under70",
+                    subcategory: "wedding",
+                    badge: "-30%"
+                },
+                {
+                    id: 112,
+                    name: "Платье шифоновое",
+                    description: "Легкое шифоновое платье",
+                    price: 19999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M"],
+                    category: "all-dresses",
+                    subcategory: "maxi"
+                },
+                {
+                    id: 113,
+                    name: "Платье с бантом",
+                    description: "Платье с декоративным бантом",
+                    price: 16999,
+                    oldPrice: 23999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M"],
+                    category: "under70",
+                    subcategory: "cocktail",
+                    badge: "-29%"
+                },
+                {
+                    id: 114,
+                    name: "Платье атласное",
+                    description: "Гладкое атласное платье",
+                    price: 28999,
+                    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M", "L"],
+                    category: "all-dresses",
+                    subcategory: "evening"
+                },
+                {
+                    id: 115,
+                    name: "Платье с разрезами",
+                    description: "Стильное платье с разрезами",
+                    price: 21999,
+                    oldPrice: 31999,
+                    image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["S", "M"],
+                    category: "under70",
+                    subcategory: "mini",
+                    badge: "-31%"
+                },
+                {
+                    id: 116,
+                    name: "Платье с рюшами",
+                    description: "Женственное платье с рюшами",
+                    price: 24999,
+                    image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["XS", "S", "M"],
+                    category: "all-dresses",
+                    subcategory: "cocktail"
+                }
+            ],
+            bags: [
+                {
+                    id: 201,
+                    name: "Сумка тоут",
+                    description: "Вместительная кожаная сумка",
+                    price: 23999,
+                    oldPrice: 34999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "tote",
+                    badge: "-31%"
+                },
+                {
+                    id: 202,
+                    name: "Клатч вечерний",
+                    description: "Бархатный клатч с вышивкой",
+                    price: 14999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "clutch"
+                },
+                {
+                    id: 203,
+                    name: "Рюкзак кожаный",
+                    description: "Стильный рюкзак из натуральной кожи",
+                    price: 29999,
+                    oldPrice: 42999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "backpack",
+                    badge: "-30%"
+                },
+                {
+                    id: 204,
+                    name: "Сумка кросс-боди",
+                    description: "Сумка через плечо с цепочкой",
+                    price: 17999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "crossbody"
+                },
+                {
+                    id: 205,
+                    name: "Сумка на плечо",
+                    description: "Элегантная сумка на плечо",
+                    price: 21999,
+                    oldPrice: 31999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "shoulder",
+                    badge: "-31%"
+                },
+                {
+                    id: 206,
+                    name: "Мини-сумка",
+                    description: "Маленькая стильная сумка",
+                    price: 12999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "clutch"
+                },
+                {
+                    id: 207,
+                    name: "Пляжная сумка",
+                    description: "Большая сумка для пляжа",
+                    price: 8999,
+                    oldPrice: 12999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "tote",
+                    badge: "-31%"
+                },
+                {
+                    id: 208,
+                    name: "Сумка-багет",
+                    description: "Узкая сумка-багет",
+                    price: 18999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "shoulder"
+                },
+                {
+                    id: 209,
+                    name: "Спортивный рюкзак",
+                    description: "Удобный спортивный рюкзак",
+                    price: 11999,
+                    oldPrice: 17999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "backpack",
+                    badge: "-33%"
+                },
+                {
+                    id: 210,
+                    name: "Клатч с цепочкой",
+                    description: "Клатч с золотой цепочкой",
+                    price: 15999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "clutch"
+                },
+                {
+                    id: 211,
+                    name: "Рабочая сумка",
+                    description: "Вместительная сумка для работы",
+                    price: 26999,
+                    oldPrice: 38999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "tote",
+                    badge: "-31%"
+                },
+                {
+                    id: 212,
+                    name: "Сумка-хобо",
+                    description: "Мягкая сумка-хобо",
+                    price: 19999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "shoulder"
+                },
+                {
+                    id: 213,
+                    name: "Дорожная сумка",
+                    description: "Сумка для путешествий",
+                    price: 32999,
+                    oldPrice: 46999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "tote",
+                    badge: "-30%"
+                },
+                {
+                    id: 214,
+                    name: "Сумка-конверт",
+                    description: "Плоская сумка-конверт",
+                    price: 13999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "clutch"
+                },
+                {
+                    id: 215,
+                    name: "Городской рюкзак",
+                    description: "Стильный городской рюкзак",
+                    price: 17999,
+                    oldPrice: 25999,
+                    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "backpack",
+                    badge: "-31%"
+                },
+                {
+                    id: 216,
+                    name: "Вечерняя сумочка",
+                    description: "Элегантная вечерняя сумочка",
+                    price: 21999,
+                    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-bags",
+                    subcategory: "clutch"
+                }
+            ],
+            shoes: [
+                {
+                    id: 301,
+                    name: "Туфли лодочки",
+                    description: "Классические туфли на шпильке",
+                    price: 15999,
+                    oldPrice: 22999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "under70",
+                    subcategory: "heels",
+                    badge: "-30%"
+                },
+                {
+                    id: 302,
+                    name: "Балетки атласные",
+                    description: "Элегантные балетки с бантом",
+                    price: 8999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["35", "36", "37", "38"],
+                    category: "all-shoes",
+                    subcategory: "flats"
+                },
+                {
+                    id: 303,
+                    name: "Ботильоны замшевые",
+                    description: "Стильные ботильоны на каблуке",
+                    price: 18999,
+                    oldPrice: 26999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "under70",
+                    subcategory: "boots",
+                    badge: "-30%"
+                },
+                {
+                    id: 304,
+                    name: "Сапоги на платформе",
+                    description: "Теплые сапоги на высокой подошве",
+                    price: 23999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["37", "38", "39", "40"],
+                    category: "all-shoes",
+                    subcategory: "boots"
+                },
+                {
+                    id: 305,
+                    name: "Кроссовки белые",
+                    description: "Стильные белые кроссовки",
+                    price: 12999,
+                    oldPrice: 18999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39", "40"],
+                    category: "under70",
+                    subcategory: "sneakers",
+                    badge: "-32%"
+                },
+                {
+                    id: 306,
+                    name: "Сандалии на каблуке",
+                    description: "Летние сандалии на каблуке",
+                    price: 11999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["35", "36", "37", "38"],
+                    category: "all-shoes",
+                    subcategory: "sandals"
+                },
+                {
+                    id: 307,
+                    name: "Туфли на платформе",
+                    description: "Туфли на высокой платформе",
+                    price: 17999,
+                    oldPrice: 25999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38"],
+                    category: "under70",
+                    subcategory: "heels",
+                    badge: "-31%"
+                },
+                {
+                    id: 308,
+                    name: "Мокасины кожаные",
+                    description: "Удобные кожаные мокасины",
+                    price: 10999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["37", "38", "39", "40"],
+                    category: "all-shoes",
+                    subcategory: "flats"
+                },
+                {
+                    id: 309,
+                    name: "Сапоги до колена",
+                    description: "Высокие сапоги до колена",
+                    price: 26999,
+                    oldPrice: 38999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["37", "38", "39"],
+                    category: "under70",
+                    subcategory: "boots",
+                    badge: "-31%"
+                },
+                {
+                    id: 310,
+                    name: "Босоножки на каблуке",
+                    description: "Элегантные босоножки",
+                    price: 14999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["35", "36", "37", "38"],
+                    category: "all-shoes",
+                    subcategory: "sandals"
+                },
+                {
+                    id: 311,
+                    name: "Кроссовки черные",
+                    description: "Спортивные черные кроссовки",
+                    price: 13999,
+                    oldPrice: 19999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["38", "39", "40", "41"],
+                    category: "under70",
+                    subcategory: "sneakers",
+                    badge: "-30%"
+                },
+                {
+                    id: 312,
+                    name: "Балетки черные",
+                    description: "Классические черные балетки",
+                    price: 7999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["35", "36", "37", "38"],
+                    category: "all-shoes",
+                    subcategory: "flats"
+                },
+                {
+                    id: 313,
+                    name: "Туфли с острым носом",
+                    description: "Стильные туфли с острым носом",
+                    price: 16999,
+                    oldPrice: 24999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38"],
+                    category: "under70",
+                    subcategory: "heels",
+                    badge: "-32%"
+                },
+                {
+                    id: 314,
+                    name: "Сапоги на низком каблуке",
+                    description: "Удобные сапоги на низком каблуке",
+                    price: 19999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["37", "38", "39"],
+                    category: "all-shoes",
+                    subcategory: "boots"
+                },
+                {
+                    id: 315,
+                    name: "Сланцы дизайнерские",
+                    description: "Модные дизайнерские сланцы",
+                    price: 5999,
+                    oldPrice: 8999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "under70",
+                    subcategory: "sandals",
+                    badge: "-33%"
+                },
+                {
+                    id: 316,
+                    name: "Туфли на низком каблуке",
+                    description: "Удобные туфли на низком каблуке",
+                    price: 12999,
+                    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["36", "37", "38", "39"],
+                    category: "all-shoes",
+                    subcategory: "heels"
+                }
+            ],
+            jewelry: [
+                {
+                    id: 401,
+                    name: "Серьги с жемчугом",
+                    description: "Позолоченные серьги с жемчугом",
+                    price: 12999,
+                    oldPrice: 18999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "earrings",
+                    badge: "-32%"
+                },
+                {
+                    id: 402,
+                    name: "Колье из белого золота",
+                    description: "Элегантное колье с бриллиантами",
+                    price: 45999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "necklaces"
+                },
+                {
+                    id: 403,
+                    name: "Кольцо с сапфиром",
+                    description: "Золотое кольцо с сапфиром",
+                    price: 29999,
+                    oldPrice: 42999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["16", "17", "18", "19"],
+                    category: "under70",
+                    subcategory: "rings",
+                    badge: "-30%"
+                },
+                {
+                    id: 404,
+                    name: "Браслет Pandora",
+                    description: "Серебряный браслет с подвесками",
+                    price: 18999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "bracelets"
+                },
+                {
+                    id: 405,
+                    name: "Брошь с изумрудом",
+                    description: "Элегантная брошь с изумрудом",
+                    price: 21999,
+                    oldPrice: 31999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "brooches",
+                    badge: "-31%"
+                },
+                {
+                    id: 406,
+                    name: "Серьги-гвоздики",
+                    description: "Маленькие золотые серьги-гвоздики",
+                    price: 8999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "earrings"
+                },
+                {
+                    id: 407,
+                    name: "Колье с подвеской",
+                    description: "Колье с драгоценной подвеской",
+                    price: 32999,
+                    oldPrice: 46999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "necklaces",
+                    badge: "-30%"
+                },
+                {
+                    id: 408,
+                    name: "Кольцо обручальное",
+                    description: "Простое золотое обручальное кольцо",
+                    price: 15999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["16", "17", "18", "19"],
+                    category: "all-jewelry",
+                    subcategory: "rings"
+                },
+                {
+                    id: 409,
+                    name: "Браслет цепочка",
+                    description: "Золотой браслет-цепочка",
+                    price: 13999,
+                    oldPrice: 19999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "bracelets",
+                    badge: "-30%"
+                },
+                {
+                    id: 410,
+                    name: "Серьги с бриллиантами",
+                    description: "Бриллиантовые серьги",
+                    price: 37999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "earrings"
+                },
+                {
+                    id: 411,
+                    name: "Брошь цветочная",
+                    description: "Брошь в виде цветка",
+                    price: 14999,
+                    oldPrice: 21999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "brooches",
+                    badge: "-32%"
+                },
+                {
+                    id: 412,
+                    name: "Колье-чокер",
+                    description: "Модное колье-чокер",
+                    price: 11999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "necklaces"
+                },
+                {
+                    id: 413,
+                    name: "Кольцо с гранатом",
+                    description: "Серебряное кольцо с гранатом",
+                    price: 16999,
+                    oldPrice: 23999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["17", "18", "19"],
+                    category: "under70",
+                    subcategory: "rings",
+                    badge: "-29%"
+                },
+                {
+                    id: 414,
+                    name: "Браслет браслет",
+                    description: "Широкий браслет",
+                    price: 21999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "bracelets"
+                },
+                {
+                    id: 415,
+                    name: "Брошь геометрическая",
+                    description: "Современная геометрическая брошь",
+                    price: 12999,
+                    oldPrice: 18999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "brooches",
+                    badge: "-32%"
+                },
+                {
+                    id: 416,
+                    name: "Серьги длинные",
+                    description: "Длинные подвесные серьги",
+                    price: 15999,
+                    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-jewelry",
+                    subcategory: "earrings"
+                }
+            ],
+            beauty: [
+                {
+                    id: 501,
+                    name: "Палетка теней Dior",
+                    description: "Палетка с 10 оттенками теней",
+                    price: 5999,
+                    oldPrice: 8999,
+                    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "makeup",
+                    badge: "-33%"
+                },
+                {
+                    id: 502,
+                    name: "Помада Chanel",
+                    description: "Матовые помады 5 оттенков",
+                    price: 3499,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-beauty",
+                    subcategory: "makeup"
+                },
+                {
+                    id: 503,
+                    name: "Крем для лица",
+                    description: "Ночной крем для омоложения",
+                    price: 8999,
+                    oldPrice: 12999,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "under70",
+                    subcategory: "skincare",
+                    badge: "-31%"
+                },
+                {
+                    id: 504,
+                    name: "Духи Chanel №5",
+                    description: "Классические женские духи",
+                    price: 12999,
+                    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["50ml", "100ml"],
+                    category: "all-beauty",
+                    subcategory: "perfume"
+                },
+                {
+                    id: 505,
+                    name: "Шампунь для волос",
+                    description: "Профессиональный шампунь",
+                    price: 2999,
+                    oldPrice: 4499,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["250ml", "500ml"],
+                    category: "under70",
+                    subcategory: "hair",
+                    badge: "-33%"
+                },
+                {
+                    id: 506,
+                    name: "Тушь для ресниц",
+                    description: "Объемная тушь для ресниц",
+                    price: 2499,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-beauty",
+                    subcategory: "makeup"
+                },
+                {
+                    id: 507,
+                    name: "Сыворотка для лица",
+                    description: "Омолаживающая сыворотка",
+                    price: 11999,
+                    oldPrice: 17999,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["30ml", "50ml"],
+                    category: "under70",
+                    subcategory: "skincare",
+                    badge: "-33%"
+                },
+                {
+                    id: 508,
+                    name: "Парфюм Flower",
+                    description: "Цветочный аромат",
+                    price: 8999,
+                    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["50ml", "100ml"],
+                    category: "all-beauty",
+                    subcategory: "perfume"
+                },
+                {
+                    id: 509,
+                    name: "Кондиционер для волос",
+                    description: "Увлажняющий кондиционер",
+                    price: 3499,
+                    oldPrice: 4999,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["250ml", "500ml"],
+                    category: "under70",
+                    subcategory: "hair",
+                    badge: "-30%"
+                },
+                {
+                    id: 510,
+                    name: "Тональный крем",
+                    description: "Легкий тональный крем",
+                    price: 4999,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["30ml"],
+                    category: "all-beauty",
+                    subcategory: "makeup"
+                },
+                {
+                    id: 511,
+                    name: "Лосьон для тела",
+                    description: "Увлажняющий лосьон для тела",
+                    price: 3999,
+                    oldPrice: 5999,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["200ml", "400ml"],
+                    category: "under70",
+                    subcategory: "body",
+                    badge: "-33%"
+                },
+                {
+                    id: 512,
+                    name: "Румяна",
+                    description: "Нежные румяна",
+                    price: 2999,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-beauty",
+                    subcategory: "makeup"
+                },
+                {
+                    id: 513,
+                    name: "Маска для лица",
+                    description: "Очищающая маска для лица",
+                    price: 2499,
+                    oldPrice: 3799,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["50ml", "100ml"],
+                    category: "under70",
+                    subcategory: "skincare",
+                    badge: "-34%"
+                },
+                {
+                    id: 514,
+                    name: "Дезодорант",
+                    description: "Натуральный дезодорант",
+                    price: 1999,
+                    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["50ml"],
+                    category: "all-beauty",
+                    subcategory: "body"
+                },
+                {
+                    id: 515,
+                    name: "Масло для волос",
+                    description: "Питательное масло для волос",
+                    price: 3499,
+                    oldPrice: 4999,
+                    image: "https://images.unsplash.com/photo-1556228578-9c360e1d458f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["100ml"],
+                    category: "under70",
+                    subcategory: "hair",
+                    badge: "-30%"
+                },
+                {
+                    id: 516,
+                    name: "Бальзам для губ",
+                    description: "Увлажняющий бальзам для губ",
+                    price: 1499,
+                    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    sizes: ["One Size"],
+                    category: "all-beauty",
+                    subcategory: "makeup"
+                }
+            ]
+        };
+
+        let cart = [];
+        let currentPage = 'home';
+        let currentSubcategory = 'all';
+
+        function initShop() {
+            loadProductsForAllPages();
+            setupNavigation();
+            setupCart();
+            setupCategoryFiltering();
+            setupSubcategoryFiltering();
+            setupIcons();
+        }
+
+        function loadProductsForAllPages() {
+            for (const page in productsData) {
+                const containerId = `${page}-products`;
+                const container = document.getElementById(containerId);
+                if (container) {
+                    renderProducts(productsData[page], container, page);
+                }
+            }
+        }
+
+        function renderProducts(products, container, pageType) {
+            container.innerHTML = '';
+            
+            const filteredProducts = filterProducts(products, pageType);
+            
+            if (filteredProducts.length === 0) {
+                container.innerHTML = `
+                    <div class="no-products-message">
+                        <i class="fas fa-search"></i>
+                        <p>Товары не найдены. Попробуйте изменить фильтры.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProducts.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.style.animationDelay = `${index * 0.1}s`;
+                
+                let badgeHtml = '';
+                if (product.badge) {
+                    badgeHtml = `<div class="product-badge">${product.badge}</div>`;
+                }
+                
+                let oldPriceHtml = '';
+                let discountHtml = '';
+                if (product.oldPrice) {
+                    const discount = Math.round((1 - product.price / product.oldPrice) * 100);
+                    oldPriceHtml = `<span class="old-price">${product.oldPrice} ₽</span>`;
+                    discountHtml = `<span class="discount">-${discount}%</span>`;
+                }
+                
+                productCard.innerHTML = `
+                    ${badgeHtml}
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            ${product.price} ₽
+                            ${oldPriceHtml}
+                            ${discountHtml}
+                        </div>
+                        <div class="size-selector">
+                            ${product.sizes.map(size => 
+                                `<button class="size-btn" data-product-id="${product.id}" data-size="${size}">${size}</button>`
+                            ).join('')}
+                        </div>
+                        <button class="buy-btn" data-product-id="${product.id}">
+                            <i class="fas fa-shopping-bag"></i> Добавить в корзину
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(productCard);
+            });
+           
+            addSizeButtonHandlers();
+            addBuyButtonHandlers();
+        }
+
+        function filterProducts(products, pageType) {
+            const activeCategoryBtn = document.querySelector(`#page-${currentPage} .category-btn.active`);
+            const activeSubcategoryBtn = document.querySelector(`#page-${currentPage} .subcategory-btn.active`);
+            
+            const selectedCategory = activeCategoryBtn ? activeCategoryBtn.getAttribute('data-category') : 'all';
+            const selectedSubcategory = activeSubcategoryBtn ? activeSubcategoryBtn.getAttribute('data-subcategory') : 'all';
+            
+            return products.filter(product => {
+                let categoryMatch = true;
+                if (selectedCategory !== 'all') {
+                    if (selectedCategory === 'under70') {
+                        if (!product.oldPrice) return false;
+                        const discount = Math.round((1 - product.price / product.oldPrice) * 100);
+                        categoryMatch = discount >= 30;
+                    } else {
+                        categoryMatch = product.category === selectedCategory;
+                    }
+                }
+                
+                let subcategoryMatch = true;
+                if (selectedSubcategory !== 'all') {
+                    subcategoryMatch = product.subcategory === selectedSubcategory;
+                }
+                
+                return categoryMatch && subcategoryMatch;
+            });
+        }
+
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-container');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    if (targetPage === currentPage) return;
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    switchPage(targetPage);
+                });
+            });
+        }
+
+        function switchPage(targetPage) {
+            const currentPageElement = document.getElementById(`page-${currentPage}`);
+            const targetPageElement = document.getElementById(`page-${targetPage}`);
+            
+            if (!targetPageElement) return;
+           
+            currentPageElement.style.opacity = '0';
+            currentPageElement.style.transform = 'translateY(20px)';
+            currentPageElement.classList.remove('active');
+            
+            setTimeout(() => {
+                targetPageElement.classList.add('active');
+                
+                setTimeout(() => {
+                    targetPageElement.style.opacity = '1';
+                    targetPageElement.style.transform = 'translateY(0)';
+                }, 50);
+                
+                currentPage = targetPage;
+                currentSubcategory = 'all';
+                
+                // Обновляем отображение товаров для новой страницы
+                const container = document.getElementById(`${targetPage}-products`);
+                if (container) {
+                    renderProducts(productsData[targetPage], container, targetPage);
+                }
+                
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 300);
+        }
+
+        function setupCart() {
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const closeCart = document.getElementById('close-cart');
+            const cartOverlay = document.getElementById('cart-overlay');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            cartIcon.addEventListener('click', () => {
+                cartModal.classList.add('active');
+                cartOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeCart.addEventListener('click', closeCartModal);
+            cartOverlay.addEventListener('click', closeCartModal);
+            
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Ваша корзина пуста!');
+                    return;
+                }
+                
+                const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                alert(`Заказ оформлен! Сумма: ${totalPrice} ₽. Спасибо за покупку!`);
+                
+                cart = [];
+                updateCart();
+                closeCartModal();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && cartModal.classList.contains('active')) {
+                    closeCartModal();
+                }
+            });
+        }
+
+        function closeCartModal() {
+            const cartModal = document.getElementById('cart-modal');
+            const cartOverlay = document.getElementById('cart-overlay');
+            
+            cartModal.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function setupIcons() {
+            const wishlistIcon = document.getElementById('wishlist-icon');
+            const userIcon = document.getElementById('user-icon');
+            
+            wishlistIcon.addEventListener('click', () => {
+                wishlistIcon.innerHTML = '<i class="fas fa-heart" style="color: var(--pink-main);"></i>';
+                setTimeout(() => {
+                    wishlistIcon.innerHTML = '<i class="fas fa-heart"></i>';
+                }, 1000);
+                alert('Товар добавлен в избранное!');
+            });
+            
+            userIcon.addEventListener('click', () => {
+                alert('Страница профиля скоро будет доступна!');
+            });
+        }
+
+        function setupCategoryFiltering() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('category-btn')) {
+                    const categoryButtons = document.querySelectorAll(`#page-${currentPage} .category-btn`);
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    const container = document.getElementById(`${currentPage}-products`);
+                    if (container) {
+                        renderProducts(productsData[currentPage], container, currentPage);
+                    }
+                }
+            });
+        }
+
+        function setupSubcategoryFiltering() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('subcategory-btn')) {
+                    const subcategoryButtons = document.querySelectorAll(`#page-${currentPage} .subcategory-btn`);
+                    subcategoryButtons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    
+                    currentSubcategory = e.target.getAttribute('data-subcategory');
+                    
+                    // Обновляем отображение товаров
+                    const container = document.getElementById(`${currentPage}-products`);
+                    if (container) {
+                        renderProducts(productsData[currentPage], container, currentPage);
+                    }
+                }
+            });
+        }
+
+        function addSizeButtonHandlers() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('size-btn')) {
+                    const productId = e.target.getAttribute('data-product-id');
+                    const size = e.target.getAttribute('data-size');
+                    
+                    const allSizeBtns = document.querySelectorAll(`.size-btn[data-product-id="${productId}"]`);
+                    allSizeBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    e.target.classList.add('active');
+                }
+            });
+        }
+
+        function addBuyButtonHandlers() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('buy-btn') || e.target.closest('.buy-btn')) {
+                    const buyBtn = e.target.classList.contains('buy-btn') ? e.target : e.target.closest('.buy-btn');
+                    const productId = parseInt(buyBtn.getAttribute('data-product-id'));
+                    
+                    let product = null;
+                    for (const category in productsData) {
+                        const found = productsData[category].find(p => p.id === productId);
+                        if (found) {
+                            product = found;
+                            break;
+                        }
+                    }
+                    
+                    if (!product) return;
+                    
+                    const selectedSizeBtn = document.querySelector(`.size-btn[data-product-id="${productId}"].active`);
+                    let selectedSize = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : product.sizes[0];
+                   
+                    const cartItem = {
+                        ...product,
+                        size: selectedSize,
+                        quantity: 1
+                    };
+                    
+                    const existingItemIndex = cart.findIndex(item => 
+                        item.id === cartItem.id && item.size === cartItem.size
+                    );
+                    
+                    if (existingItemIndex >= 0) {
+                        cart[existingItemIndex].quantity++;
+                    } else {
+                        cart.push(cartItem);
+                    }
+                    
+                    updateCart();
+                  
+                    const originalHtml = buyBtn.innerHTML;
+                    buyBtn.innerHTML = '<i class="fas fa-check"></i> Добавлено!';
+                    buyBtn.style.background = 'linear-gradient(to right, #4CAF50, #45a049)';
+                    buyBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        buyBtn.innerHTML = originalHtml;
+                        buyBtn.style.background = 'linear-gradient(to right, var(--pink-main), var(--purple-main))';
+                        buyBtn.disabled = false;
+                    }, 1500);
+                }
+            });
+        }
+
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const cartCount = document.querySelector('.cart-count');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 3rem 0;">
+                        <i class="fas fa-shopping-bag" style="font-size: 3rem; color: var(--pink-light); margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p style="color: #999; font-family: var(--font-playfair);">Ваша корзина пуста</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '0 ₽';
+                return;
+            }
+            
+            let totalPrice = 0;
+            
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h4>${item.name}</h4>
+                        <p>Размер: ${item.size}</p>
+                        <p>${item.price} ₽</p>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease-quantity" data-index="${index}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn increase-quantity" data-index="${index}">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" data-index="${index}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+                
+                totalPrice += item.price * item.quantity;
+            });
+            
+            cartTotalPrice.textContent = `${totalPrice} ₽`;
+            
+            addCartItemHandlers();
+        }
+
+        function addCartItemHandlers() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('decrease-quantity') || e.target.closest('.decrease-quantity')) {
+                    const btn = e.target.classList.contains('decrease-quantity') ? e.target : e.target.closest('.decrease-quantity');
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    
+                    updateCart();
+                }
+                
+                if (e.target.classList.contains('increase-quantity') || e.target.closest('.increase-quantity')) {
+                    const btn = e.target.classList.contains('increase-quantity') ? e.target : e.target.closest('.increase-quantity');
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    
+                    cart[index].quantity++;
+                    updateCart();
+                }
+                
+                if (e.target.classList.contains('remove-item') || e.target.closest('.remove-item')) {
+                    const btn = e.target.classList.contains('remove-item') ? e.target : e.target.closest('.remove-item');
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
